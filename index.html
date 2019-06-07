@@ -438,12 +438,14 @@
                 .each("end", function(){
                     d3.select("#question label").text(data[picked].question);
 
-                    for(var i=0; i<8; i++) {
-                        if(i%2 == 0) {
-                            newFireworkSeed(w + padding.left + i*Math.random()*100, (h/2)+padding.top - i*Math.random()*10);
-                        } else {
-                            newFireworkSeed(w + padding.left - i*Math.random()*100, (h/2)+padding.top - i*Math.random()*10);
-                        }
+                    for(var i=0; i<10; i++) {
+                        sleep(i*300).then(() => {
+                            if(i%2 == 0) {
+                                newFireworkSeed(w + padding.left + i*Math.random()*100, (h/2)+padding.top - i*Math.random()*10);
+                            } else {
+                                newFireworkSeed(w + padding.left - i*Math.random()*100, (h/2)+padding.top - i*Math.random()*10);
+                            }
+                        });
                     }
                     
                     oldrotation = rotation;
